@@ -1,53 +1,69 @@
 * {
-    font-family: Lato;
-  }
-  body {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-  
-  #registerForm.hidden {
-    display: none;
-  }
-  
-  #registerForm {
-    display: grid;
-    grid-template-columns: min-content max-content;
-    gap: 0.5rem;
-  }
-  .span-2 {
-    width: 100%;
-    grid-column-start: 1;
-    grid-column-end: 3;
-  }
-  
-  #registerForm > label,
-  #registerForm > input[type='checkbox'] {
-    justify-self: end;
-  }
-  
-  #registerForm > #checkLabel {
-    justify-self: start;
-  }
-  
-  fieldset {
-    border: 0 none;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-  #errorContainer {
-    color: rgb(196, 77, 77);
-  }
-  
-  th,
-  td {
-    padding: 0.2rem;
-    outline: black solid 2px;
-  }
-  th {
-    min-width: 10rem;
-  }
-  
+	font-family: Lato;
+}
+body {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+}
+
+.span-2 {
+	width: 100%;
+	grid-column-start: 1;
+	grid-column-end: 3;
+}
+
+input {
+	border-radius: 5px;
+	padding: 0.1rem;
+}
+
+button {
+	cursor: pointer;
+	padding: 0.3rem;
+	border-radius: 5px;
+}
+
+#registerForm.hidden {
+	display: none;
+}
+
+#registerForm {
+	display: grid;
+	grid-template-columns: min-content max-content;
+	gap: 0.5rem;
+	padding: 2rem 4rem;
+	outline: black solid 2px;
+	border-radius: 10px;
+}
+
+#registerForm > label,
+#registerForm > input[type="checkbox"] {
+	justify-self: end;
+}
+
+#registerForm > #checkLabel {
+	justify-self: start;
+}
+
+fieldset {
+	border: 0 none;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+#errorContainer {
+	color: rgb(196, 77, 77);
+	white-space: pre-wrap;	
+}
+
+th,
+td {
+	padding: 0.2rem;
+	outline: black solid 2px;
+}
+
+th {
+	min-width: 10rem;
+}

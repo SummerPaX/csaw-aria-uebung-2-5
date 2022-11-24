@@ -1,75 +1,66 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="index.css">
-    <title>Document</title>
-    <script src="index.js" defer></script>
-  </head>
-  <body>
-    <button id="openFormButton">Toggle Form</button>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="index.css" />
+		<title>Document</title>
+		<script src="index.js" defer></script>
+	</head>
+	<body>
+		<header>
+			<h1>Registrierungsformular</h1>
+			<button id="openFormButton" aria-pressed="false">Toggle Form</button>
+		</header>
 
-    <main>
-      <form id="registerForm" class="hidden">
-        <label for="inputFirstName">Vorname</label>
-        <input
-          id="inputFirstName"
-          type="text"
-          required
-          aria-required="true"
-          name="Vorname"
-        />
-        <label for="inputLastName">Nachname</label>
-        <input
-          id="inputLastName"
-          type="text"
-          required
-          aria-required="true"
-          name="Nachname"
-        />
-        <label for="inputEmail">Email</label>
-        <input id="inputEmail" type="email" name="Email" />
-        <label for="inputTel">Tel</label>
-        <input id="inputTel" type="tel" aria-label="Tel" name="Tel" />
-        <input id="inputCheck" type="checkbox" name="Name" />
-        <label id="checkLabel" for="inputCheck">I agree to TOS</label>
-        <fieldset id="firstRadios" class="span-2">
-          <legend for="firstRadios" class="span-2">Was kam zuerst:</legend>
-          <div>
-            <input type="radio" id="radio1" name="radio" value="Huhn" />
-            <label for="radio1">Huhn</label>
-          </div>
-          <div>
-            <input type="radio" id="radio2" name="radio" value="Ei" />
-            <label for="radio2">Ei</label>
-          </div>
-        </fieldset>
-        <button type="submit" id="registerButton" class="span-2">
-          Update details
-        </button>
-        <div aria-live="assertive" id="errorContainer" class="span-2"></div>
-      </form>
-    </main>
-    <!-- Simple modal dialog containing a form -->
-    <dialog id="favDialog">
-      <form method="dialog">
-        <h1>Registered Users:</h1>
-        <table id="dataTable" style="margin-bottom: 1rem">
-          <tr>
-            <th>Vorname</th>
-            <th>Nachname</th>
-            <th>Email</th>
-            <th>Tel</th>
-            <th>TOS</th>
-            <th>First?</th>
-          </tr>
-        </table>
-        <div>
-          <button id="confirmBtn" value="close">Schließen</button>
-        </div>
-      </form>
-    </dialog>
-  </body>
+		<main>
+			<form id="registerForm" class="hidden">
+				<h2 class="span-2">Daten eingeben:</h2>
+				<label for="inputFirstName">Vorname</label>
+				<input id="inputFirstName" type="text" required aria-required="true" name="Vorname" />
+				<label for="inputLastName">Nachname</label>
+				<input id="inputLastName" type="text" required aria-required="true" name="Nachname" />
+				<label for="inputEmail">Email</label>
+				<input id="inputEmail" type="email" name="Email" />
+				<label for="inputTel">Tel</label>
+				<input id="inputTel" type="tel" pattern="^[\+]?[1-9\s]{4,14}$" aria-label="Tel" name="Tel" />
+				<input id="inputCheck" type="checkbox" name="Name" />
+				<label id="checkLabel" for="inputCheck">I agree!</label>
+				<fieldset role="radiogroup" id="firstRadios" class="span-2" aria-required="true">
+					<legend for="firstRadios" class="span-2">Was kam zuerst:</legend>
+					<div>
+						<input type="radio" id="radio1" name="radio" required value="Huhn" />
+						<label for="radio1">Huhn</label>
+					</div>
+					<div>
+						<input type="radio" id="radio2" name="radio" value="Ei" />
+						<label for="radio2">Ei</label>
+					</div>
+				</fieldset>
+				<button type="submit" id="registerButton" class="span-2">Update details</button>
+				<div aria-live="polite" id="errorContainer" class="span-2"></div>
+			</form>
+		</main>
+
+		<!-- Modal dialog ist anfangs nicht "open" -->
+		<dialog role="dialog" id="favDialog" aria-label="Registered Users:">
+			<form method="dialog">
+				<h1>Registered Users:</h1>
+				<table role="table" id="dataTable" style="margin-bottom: 1rem">
+					<tr role="row">
+						<th role="columnheader">Vorname</th>
+						<th role="columnheader">Nachname</th>
+						<th role="columnheader">Email</th>
+						<th role="columnheader">Tel</th>
+						<th role="columnheader">TOS</th>
+						<th role="columnheader">Huhn oder Ei</th>
+					</tr>
+				</table>
+				<div>
+					<button id="confirmBtn" value="close">Schließen</button>
+				</div>
+			</form>
+		</dialog>
+	</body>
 </html>
